@@ -29,14 +29,17 @@ return {
         automatic_installation = true,
       })
 
-      local lspconfig = require("lspconfig")
       local servers = { "lua_ls", "ansiblels", "bashls", "pyright", "gopls", "yamlls" }
 
       for _, server in ipairs(servers) do
-        if lspconfig[server] then
-          lspconfig[server].setup({
-            capabilities = capabilities,
-          })
+        if vim.lsp.config then
+          vim.lsp.config[server] = { capabilities = capabilities }
+          vim.lsp.enable(server)
+        else
+          local ok, lspconfig = pcall(require, "lspconfig")
+          if ok and lspconfig[server] then
+            lspconfig[server].setup({ capabilities = capabilities })
+          end
         end
       end
 
