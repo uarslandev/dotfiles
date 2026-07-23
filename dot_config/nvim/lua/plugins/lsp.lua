@@ -8,9 +8,16 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+      "hrsh7th/cmp-nvim-lsp",
+    },
     config = function()
-      require("mason-lspconfig").setup({
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local mason_lspconfig = require("mason-lspconfig")
+
+      mason_lspconfig.setup({
         ensure_installed = {
           "lua_ls",
           "ansiblels",
@@ -21,26 +28,19 @@ return {
         },
         automatic_installation = true,
       })
-    end,
-  },
 
-  -- LSP Configuration
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
-    },
-    config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      local servers = { "lua_ls", "ansiblels", "bashls", "pyright", "gopls", "yamlls" }
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup({
-          capabilities = capabilities,
-        })
-      end
+      mason_lspconfig.setup_handlers({
+        function(server_name)
+          if vim.lsp.config then
+            vim.lsp.config(server_name, { capabilities = capabilities })
+            vim.lsp.enable(server_name)
+          elseif type(vim.lsp.enable) == "function" then
+            vim.lsp.enable(server_name)
+          else
+            require("lspconfig")[server_name].setup({ capabilities = capabilities })
+          end
+        end,
+      })
 
       -- LSP Keybindings
       vim.api.nvim_create_autocmd("LspAttach", {
