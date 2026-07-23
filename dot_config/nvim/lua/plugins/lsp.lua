@@ -23,13 +23,12 @@ return {
           "ansiblels",
           "bashls",
           "pyright",
-          "gopls",
           "yamlls",
         },
         automatic_installation = true,
       })
 
-      local servers = { "lua_ls", "ansiblels", "bashls", "pyright", "gopls", "yamlls" }
+      local servers = { "lua_ls", "ansiblels", "bashls", "pyright", "yamlls" }
 
       for _, server in ipairs(servers) do
         if vim.lsp.config then

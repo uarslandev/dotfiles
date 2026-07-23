@@ -15,7 +15,6 @@ return {
           "vimdoc",
           "bash",
           "python",
-          "go",
           "yaml",
           "json",
           "dockerfile",
