@@ -29,18 +29,16 @@ return {
         automatic_installation = true,
       })
 
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          if vim.lsp.config then
-            vim.lsp.config(server_name, { capabilities = capabilities })
-            vim.lsp.enable(server_name)
-          elseif type(vim.lsp.enable) == "function" then
-            vim.lsp.enable(server_name)
-          else
-            require("lspconfig")[server_name].setup({ capabilities = capabilities })
-          end
-        end,
-      })
+      local lspconfig = require("lspconfig")
+      local servers = { "lua_ls", "ansiblels", "bashls", "pyright", "gopls", "yamlls" }
+
+      for _, server in ipairs(servers) do
+        if lspconfig[server] then
+          lspconfig[server].setup({
+            capabilities = capabilities,
+          })
+        end
+      end
 
       -- LSP Keybindings
       vim.api.nvim_create_autocmd("LspAttach", {
