@@ -47,6 +47,10 @@ alias gnome-backup="dconf dump / > ~/.config/dconf/settings.dconf && chezmoi re-
 alias dotsync="dconf dump / > ~/.config/dconf/settings.dconf && chezmoi re-add && chezmoi cd && git add . && git commit -m 'update dotfiles & gnome settings' && git push && exit"
 alias ansible-apply="ansible-playbook ~/ansible/site.yml --ask-become-pass"
 alias backup-all="dconf dump / > ~/.config/dconf/settings.dconf && chezmoi re-add && git -C ~/.local/share/chezmoi add . && git -C ~/.local/share/chezmoi commit -m 'backup: dotfiles and gnome settings' && git -C ~/.local/share/chezmoi push; git -C ~/ansible add . && git -C ~/ansible commit -m 'backup: ansible monorepo' && git -C ~/ansible push"
+alias zshrc="nvim ~/.zshrc"
+alias n="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
