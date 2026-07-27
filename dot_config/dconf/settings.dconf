@@ -80,7 +80,7 @@ migrated-gtk-settings=true
 [org/gnome/Ptyxis]
 default-profile-uuid='a9230309068dedd3c73c5f846a61e246'
 profile-uuids=['a9230309068dedd3c73c5f846a61e246']
-window-size=(uint32 84, uint32 36)
+window-size=(uint32 169, uint32 38)
 
 [org/gnome/Showtime/State]
 is-maximized=false
@@ -89,7 +89,7 @@ is-maximized=false
 active-view='month'
 
 [org/gnome/control-center]
-last-panel='wifi'
+last-panel='network'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
@@ -178,6 +178,7 @@ night-light-schedule-automatic=false
 donation-reminder-last-shown=int64 1784803151827302
 
 [org/gnome/shell]
+last-selected-power-profile='performance'
 welcome-dialog-last-shown-version='50.0'
 
 [org/gnome/shell/world-clocks]
@@ -186,6 +187,8 @@ locations=@av []
 [org/gnome/software]
 check-timestamp=int64 1785095722
 first-run=false
+install-timestamp=int64 1785101135
+packagekit-historical-updates-timestamp=uint64 1785101135
 security-timestamp=int64 1784802498597495
 update-notification-timestamp=int64 1785095644
 
@@ -215,3 +218,13 @@ security-timestamp=int64 1784802498597495
 
 [system/location]
 enabled=false
+
+[system/proxy]
+mode='auto'
+
+[system/proxy/http]
+host='10.232.106.56'
+
+[system/proxy/https]
+host='10.232.106.56'
+port=8080
