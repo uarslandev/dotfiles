@@ -1,4 +1,11 @@
 return {
+  -- Devicons (Icons)
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = false,
+    opts = { default = true },
+  },
+
   -- TokyoNight Theme
   {
     "folke/tokyonight.nvim",

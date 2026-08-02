@@ -80,16 +80,18 @@ migrated-gtk-settings=true
 [org/gnome/Ptyxis]
 default-profile-uuid='a9230309068dedd3c73c5f846a61e246'
 profile-uuids=['a9230309068dedd3c73c5f846a61e246']
-window-size=(uint32 169, uint32 38)
+window-size=(uint32 169, uint32 36)
 
 [org/gnome/Showtime/State]
 is-maximized=false
 
 [org/gnome/calendar]
 active-view='month'
+window-maximized=true
+window-size=(768, 600)
 
 [org/gnome/control-center]
-last-panel='network'
+last-panel='bluetooth'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
@@ -115,6 +117,14 @@ categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 translate=true
 
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/gnome/dithered-sun-l.jxl'
+picture-uri-dark='file:///usr/share/backgrounds/gnome/dithered-sun-d.jxl'
+primary-color='#e1ffb9'
+secondary-color='#5c0526'
+
 [org/gnome/desktop/break-reminders/eyesight]
 play-sound=true
 
@@ -129,6 +139,7 @@ sources=[('xkb', 'de+us')]
 
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
+icon-theme='Adwaita'
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-software', 'org-gnome-ptyxis', 'org-mozilla-firefox', 'gnome-about-panel', 'gnome-power-panel', 'org-gnome-showtime', 'vlc']
@@ -160,6 +171,19 @@ report-technical-problems=false
 [org/gnome/desktop/screen-time-limits]
 daily-limit-seconds=uint32 28800
 
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/gnome/dithered-sun-l.jxl'
+primary-color='#e1ffb9'
+secondary-color='#5c0526'
+
+[org/gnome/desktop/wm/keybindings]
+close=['<Shift><Super>q']
+
+[org/gnome/desktop/wm/preferences]
+button-layout='close:appmenu'
+
 [org/gnome/login-screen]
 enable-fingerprint-authentication=true
 enable-smartcard-authentication=false
@@ -170,6 +194,14 @@ migrated-gtk-settings=true
 
 [org/gnome/nautilus/window-state]
 initial-size=(890, 550)
+initial-size-file-chooser=(890, 550)
+
+[org/gnome/nm-applet/eap/56912884-7174-4e6c-9a15-81f951451454]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/portal/filechooser/org.gnome.Settings]
+last-folder-path='/home/user/Downloads'
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-schedule-automatic=false
@@ -177,23 +209,50 @@ night-light-schedule-automatic=false
 [org/gnome/settings-daemon/plugins/housekeeping]
 donation-reminder-last-shown=int64 1784803151827302
 
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+email=@as []
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>Return'
+command='ptyxis'
+name='ptyxis'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Shift><Super>o'
+command='keepassxc'
+name='keepassxc'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>e'
+command='nautilus'
+name='files'
+
 [org/gnome/shell]
+disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['background-logo@fedorahosted.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com']
 last-selected-power-profile='performance'
 welcome-dialog-last-shown-version='50.0'
+
+[org/gnome/shell/extensions/pop-shell]
+tile-enter=@as []
 
 [org/gnome/shell/world-clocks]
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1785095722
+check-timestamp=int64 1785656316
 first-run=false
 install-timestamp=int64 1785101135
 packagekit-historical-updates-timestamp=uint64 1785101135
 security-timestamp=int64 1784802498597495
-update-notification-timestamp=int64 1785095644
+update-notification-timestamp=int64 1785656298
 
 [org/gnome/system/location]
 enabled=false
+
+[org/gnome/tweaks]
+show-extensions-notice=false
 
 [org/gtk/gtk4/settings/file-chooser]
 show-hidden=false
