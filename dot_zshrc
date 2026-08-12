@@ -50,6 +50,7 @@ alias zshrc="nvim ~/.zshrc"
 alias n="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias sd="backup-all && shutdown now"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
