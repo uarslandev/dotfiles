@@ -20,22 +20,29 @@ smart_gaps on
 smart_borders on
 hide_edge_borders smart
 
+# Color variables
+set $color_bg      #000000
+set $color_fg      #ffffff
+set $color_muted   #777777
+set $color_urgent  #ff0000
+
 default_border pixel 1
 default_floating_border pixel 1
-client.focused #ffffff #000000 #ffffff #ffffff #ffffff
-client.unfocused #000000 #000000 #777777 #000000 #000000
-client.focused_inactive #000000 #000000 #777777 #000000 #000000
-client.urgent #ff0000 #000000 #ff0000 #ff0000 #ff0000
+client.focused          $color_fg     $color_bg $color_fg     $color_fg     $color_fg
+client.unfocused        $color_bg     $color_bg $color_muted  $color_bg     $color_bg
+client.focused_inactive $color_bg     $color_bg $color_muted  $color_bg     $color_bg
+client.urgent           $color_urgent $color_bg $color_urgent $color_urgent $color_urgent
 
 floating_modifier $mod normal
 focus_follows_mouse no
 
-assign [app_id="foot"] $ws1
-assign [class="(?i)(firefox|tor browser|brave-browser|chromium)"] $ws2
-assign [class="(?i)(thunderbird|evolution|mail)"] $ws3
-assign [class="(?i)discord"] $ws4
-assign [class="(?i)steam"] $ws4
-assign [class="(?i)gimp.*"] $ws5
+# Move spawned window to workspace AND switch to that workspace tab automatically
+for_window [app_id="foot"] move container to workspace $ws1, workspace $ws1
+for_window [class="(?i)(firefox|tor browser|brave-browser|chromium)"] move container to workspace $ws2, workspace $ws2
+for_window [class="(?i)(thunderbird|evolution|mail)"] move container to workspace $ws3, workspace $ws3
+for_window [class="(?i)discord"] move container to workspace $ws4, workspace $ws4
+for_window [class="(?i)steam"] move container to workspace $ws4, workspace $ws4
+for_window [class="(?i)gimp.*"] move container to workspace $ws5, workspace $ws5
 
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
@@ -66,6 +73,11 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -77,6 +89,15 @@ bar {
   status_command i3status
   position top
   font pango:DeJaVu Sans Mono 8
-}
 
-#exec_always waybar
+  colors {
+    background $color_bg
+    statusline $color_fg
+    separator  $color_muted
+
+    focused_workspace  $color_fg     $color_fg     $color_bg
+    active_workspace   $color_bg     $color_bg     $color_fg
+    inactive_workspace $color_bg     $color_bg     $color_muted
+    urgent_workspace   $color_urgent $color_urgent $color_fg
+  }
+}
