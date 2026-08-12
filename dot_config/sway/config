@@ -101,3 +101,5 @@ bar {
     urgent_workspace   $color_urgent $color_urgent $color_fg
   }
 }
+
+exec_always nm-applet
