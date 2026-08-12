@@ -1,0 +1,76 @@
+set $mod Mod4
+set $term foot
+set $menu wofi --show drun
+set $browser torbrowser-launcher
+set $mail thunderbird
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+font pango:monospace 10
+
+output * bg #000000 solid_color
+
+gaps inner 0
+gaps outer 0
+smart_gaps on
+smart_borders on
+hide_edge_borders smart
+
+default_border pixel 1
+default_floating_border pixel 1
+client.focused #ffffff #000000 #ffffff #ffffff #ffffff
+client.unfocused #000000 #000000 #777777 #000000 #000000
+client.focused_inactive #000000 #000000 #777777 #000000 #000000
+client.urgent #ff0000 #000000 #ff0000 #ff0000 #ff0000
+
+floating_modifier $mod normal
+focus_follows_mouse no
+
+assign [app_id="foot"] $ws1
+assign [class="(?i)(firefox|tor browser|brave-browser|chromium)"] $ws2
+assign [class="(?i)(thunderbird|evolution|mail)"] $ws3
+assign [class="(?i)discord"] $ws4
+assign [class="(?i)steam"] $ws4
+assign [class="(?i)gimp.*"] $ws5
+
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+b exec $browser
+bindsym $mod+m exec $mail
+bindsym $mod+Shift+g exec gimp
+bindsym $mod+Shift+d exec discord
+bindsym $mod+Shift+s exec steam
+bindsym $mod+Shift+l exec swaylock -f -c 000000
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+
+bindsym $mod+q kill
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exec swaynag -t warning -m "Exit Sway?" -b "Yes" "swaymsg exit"
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+exec_always waybar
