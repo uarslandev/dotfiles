@@ -44,10 +44,10 @@ bindsym $mod+m exec $mail
 bindsym $mod+Shift+g exec gimp
 bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+s exec steam
-bindsym $mod+Shift+l exec swaylock -f -c 000000
+bindsym $mod+Shift+f exec swaylock -f -c 000000
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exec swaynag -t warning -m "Exit Sway?" -b "Yes" "swaymsg exit"
 
@@ -73,4 +73,10 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 
-exec_always waybar
+bar {
+  status_command i3status
+  position top
+  font pango:DeJaVu Sans Mono 8
+}
+
+#exec_always waybar
