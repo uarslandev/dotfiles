@@ -50,7 +50,7 @@ alias gc="git commit"
 
 # Dotfiles & Ansible Shortcuts
 alias dotsync="chezmoi re-add && chezmoi cd && git add . && git commit -m 'update dotfiles' && git push && exit"
-alias ansible-apply="ansible-playbook ~/ansible/site.yml -K"
+alias ansible-apply="ansible-playbook -k ~/ansible/site.yml"
 alias backup-all="chezmoi re-add && git -C ~/.local/share/chezmoi add . && git -C ~/.local/share/chezmoi commit -m 'backup: dotfiles' && git -C ~/.local/share/chezmoi push; git -C ~/ansible add . && git -C ~/ansible commit -m 'backup: ansible monorepo' && git -C ~/ansible push"
 alias zshrc="nvim ~/.zshrc"
 alias n="nvim"
