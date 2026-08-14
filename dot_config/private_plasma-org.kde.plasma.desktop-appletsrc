@@ -117,6 +117,10 @@ plugin=org.kde.plasma.battery
 immutability=1
 plugin=org.kde.plasma.brightness
 
+[Containments][2][Applets][7][Applets][25]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
 [Containments][2][Applets][7][Applets][8]
 immutability=1
 plugin=org.kde.plasma.vault
@@ -142,6 +146,14 @@ lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][24][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][24][Wallpaper][org.kde.image][General]
+Image=file:///home/user/.local/share/wallpapers/Win11OS-dark/
+SlidePaths=/home/user/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=
