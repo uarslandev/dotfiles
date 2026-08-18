@@ -3,6 +3,14 @@ Id_1=0abd3d0e-44ab-4537-9bb2-5962df1f772a
 Number=1
 Rows=1
 
+[Script-krohnkite]
+noTileBorder=true
+screenGapBetween=10
+screenGapBottom=10
+screenGapLeft=10
+screenGapRight=10
+screenGapTop=10
+
 [Tiling][0abd3d0e-44ab-4537-9bb2-5962df1f772a][23d57149-d844-4712-9613-938579e55d3d]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
