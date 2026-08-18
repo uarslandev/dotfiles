@@ -64,6 +64,8 @@ update() {
     (cd "$HOME/ansible" && ansible-playbook "$playbook" "$@")
 }
 alias u='update'
+alias b='backup-all'
+alias p='pkg-sync'
 alias backup-all="chezmoi re-add && git -C ~/.local/share/chezmoi add . && git -C ~/.local/share/chezmoi commit -m 'backup: dotfiles' && git -C ~/.local/share/chezmoi push; git -C ~/ansible add . && git -C ~/ansible commit -m 'backup: ansible monorepo' && git -C ~/ansible push"
 alias zshrc="nvim ~/.zshrc"
 alias n="nvim"
