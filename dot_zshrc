@@ -51,6 +51,19 @@ alias gc="git commit"
 # Dotfiles & Ansible Shortcuts
 alias dotsync="chezmoi re-add && chezmoi cd && git add . && git commit -m 'update dotfiles' && git push && exit"
 alias ansible-apply="ansible-playbook -k ~/ansible/site.yml"
+# Run the playbook named for this host (for example: ~/ansible/pc.yml).
+update() {
+    local hostname="${HOSTNAME:-${HOST:-$(command uname -n)}}"
+    local playbook="$HOME/ansible/${hostname}.yml"
+
+    if [[ ! -f "$playbook" ]]; then
+        print -u2 "No host playbook found: $playbook"
+        return 1
+    fi
+
+    (cd "$HOME/ansible" && ansible-playbook "$playbook" "$@")
+}
+alias u='update'
 alias backup-all="chezmoi re-add && git -C ~/.local/share/chezmoi add . && git -C ~/.local/share/chezmoi commit -m 'backup: dotfiles' && git -C ~/.local/share/chezmoi push; git -C ~/ansible add . && git -C ~/ansible commit -m 'backup: ansible monorepo' && git -C ~/ansible push"
 alias zshrc="nvim ~/.zshrc"
 alias n="nvim"
