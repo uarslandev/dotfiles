@@ -3,7 +3,15 @@ Id_1=0abd3d0e-44ab-4537-9bb2-5962df1f772a
 Number=1
 Rows=1
 
+[Tiling][0abd3d0e-44ab-4537-9bb2-5962df1f772a][23d57149-d844-4712-9613-938579e55d3d]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][0abd3d0e-44ab-4537-9bb2-5962df1f772a][5c0521ff-fb49-49d6-a8c3-d797487e8c2d]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][0abd3d0e-44ab-4537-9bb2-5962df1f772a][8b046620-dd57-499d-855b-c214d5866caf]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
@@ -12,4 +20,4 @@ padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Xwayland]
-Scale=1.4
+Scale=1

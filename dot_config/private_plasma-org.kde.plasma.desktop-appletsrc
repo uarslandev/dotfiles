@@ -47,6 +47,9 @@ plugin=org.kde.plasma.pager
 immutability=1
 plugin=org.kde.plasma.icontasks
 
+[Containments][2][Applets][5][Configuration][General]
+launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser,applications:librewolf.desktop
+
 [Containments][2][Applets][6]
 immutability=1
 plugin=org.kde.plasma.marginsseparator
@@ -111,7 +114,7 @@ plugin=org.kde.plasma.cameraindicator
 
 [Containments][2][Applets][7][Applets][23]
 immutability=1
-plugin=org.kde.plasma.battery
+plugin=org.kde.kdeconnect
 
 [Containments][2][Applets][7][Applets][24]
 immutability=1
@@ -120,6 +123,10 @@ plugin=org.kde.plasma.brightness
 [Containments][2][Applets][7][Applets][25]
 immutability=1
 plugin=org.kde.plasma.mediacontroller
+
+[Containments][2][Applets][7][Applets][26]
+immutability=1
+plugin=org.kde.plasma.battery
 
 [Containments][2][Applets][7][Applets][8]
 immutability=1
@@ -136,10 +143,10 @@ knownItems=org.kde.plasma.vault,org.kde.plasma.clipboard,org.kde.plasma.weather,
 [Containments][2][General]
 AppletOrder=3;4;5;6;7;21;22
 
-[Containments][24]
-ItemGeometries-1829x1029=
+[Containments][25]
+ItemGeometries-1920x1080=
 ItemGeometriesHorizontal=
-activityId=f172e716-0bbb-4efa-b6b2-f47f34976665
+activityId=192fd801-1902-4795-93ad-33b1f1b5b5d6
 formfactor=0
 immutability=1
 lastScreen=0
@@ -147,14 +154,13 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][24][ConfigDialog]
+[Containments][25][ConfigDialog]
 DialogHeight=630
 DialogWidth=810
 
-[Containments][24][Wallpaper][org.kde.image][General]
-Image=file:///home/user/.local/share/wallpapers/Win11OS-dark/
-SlidePaths=/home/user/.local/share/wallpapers/,/usr/share/wallpapers/
+[Containments][25][General]
+iconSize=1
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=
+screenMapping=desktop:/steam.desktop,0,192fd801-1902-4795-93ad-33b1f1b5b5d6
