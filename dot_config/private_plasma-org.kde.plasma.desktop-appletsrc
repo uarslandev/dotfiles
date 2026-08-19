@@ -163,4 +163,4 @@ iconSize=1
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/steam.desktop,0,192fd801-1902-4795-93ad-33b1f1b5b5d6
+screenMapping=desktop:/com.blackmagicdesign.resolve.desktop,0,192fd801-1902-4795-93ad-33b1f1b5b5d6,desktop:/steam.desktop,0,192fd801-1902-4795-93ad-33b1f1b5b5d6
