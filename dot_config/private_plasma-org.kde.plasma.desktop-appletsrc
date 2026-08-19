@@ -36,6 +36,10 @@ plugin=org.kde.plasma.kickoff
 popupHeight=509
 popupWidth=647
 
+[Containments][2][Applets][3][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][2][Applets][3][Configuration][General]
 favoritesPortedToKAstats=true
 
@@ -98,6 +102,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][2][Applets][7][Applets][17][Configuration][General]
+currentTab=streams
 migrated=true
 
 [Containments][2][Applets][7][Applets][18]
