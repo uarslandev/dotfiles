@@ -144,10 +144,10 @@ knownItems=org.kde.plasma.vault,org.kde.plasma.clipboard,org.kde.plasma.weather,
 [Containments][2][General]
 AppletOrder=3;4;5;6;7;21;22
 
-[Containments][25]
+[Containments][26]
 ItemGeometries-1829x1029=
 ItemGeometriesHorizontal=
-activityId=1e86d493-835a-4f50-bd97-06c9c8b285d5
+activityId=ca94f10b-67a2-49e9-b078-18219f2b7f3a
 formfactor=0
 immutability=1
 lastScreen=0
