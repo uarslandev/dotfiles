@@ -36,6 +36,10 @@ plugin=org.kde.plasma.kickoff
 popupHeight=509
 popupWidth=647
 
+[Containments][2][Applets][3][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][2][Applets][3][Configuration][General]
 favoritesPortedToKAstats=true
 
@@ -157,4 +161,4 @@ wallpaperplugin=org.kde.image
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=
+screenMapping=desktop:/Zeugs miete,0,ca94f10b-67a2-49e9-b078-18219f2b7f3a
