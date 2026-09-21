@@ -56,7 +56,7 @@ export PATH="/home/user/.local/bin:$PATH"
 
 # Trigger tmux-sessionizer with Ctrl+F
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^o' "opencode --auto"
+bindkey -s '^o' "opencode --auto\n"
 bindkey -s '^k' "tmux kill-server\n"
 
 # Make the sessionized folder the base folder in tmux sessions:
