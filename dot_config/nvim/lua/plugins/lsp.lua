@@ -1,3 +1,38 @@
+-- Map Ansible playbooks/roles to the yaml.ansible filetype so the
+-- ansible-language-server (ansiblels) attaches alongside yamlls.
+do
+  local ansible_keys = {
+    "hosts", "tasks", "roles", "become", "become_user", "become_method",
+    "gather_facts", "pre_tasks", "post_tasks", "handlers", "vars_files",
+    "import_playbook", "collections", "module_defaults",
+  }
+
+  local function looks_like_ansible(path, bufnr)
+    if path:match("[/\\](playbook|site|workstation|sync|install)[^/\\]*%.ya?ml$") then
+      return true
+    end
+    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, math.min(64, vim.api.nvim_buf_line_count(bufnr)), false)
+    for _, line in ipairs(lines) do
+      local key = line:match("^%s*-?%s*([%w_]+):")
+      if key and vim.tbl_contains(ansible_keys, key) then
+        return true
+      end
+    end
+    return false
+  end
+
+  vim.filetype.add({
+    extension = {
+      yml = function(path, bufnr)
+        return looks_like_ansible(path, bufnr) and "yaml.ansible" or "yaml"
+      end,
+      yaml = function(path, bufnr)
+        return looks_like_ansible(path, bufnr) and "yaml.ansible" or "yaml"
+      end,
+    },
+  })
+end
+
 return {
   -- Mason LSP & Tool Installer
   {
@@ -31,13 +66,17 @@ return {
       local servers = { "lua_ls", "ansiblels", "bashls", "pyright", "yamlls" }
 
       for _, server in ipairs(servers) do
+        local server_config = { capabilities = capabilities }
+        if server == "yamlls" then
+          server_config.filetypes = { "yaml", "yaml.ansible", "yaml.docker-compose", "yaml.gitlab", "yaml.helm-values" }
+        end
         if vim.lsp.config then
-          vim.lsp.config[server] = { capabilities = capabilities }
+          vim.lsp.config[server] = server_config
           vim.lsp.enable(server)
         else
           local ok, lspconfig = pcall(require, "lspconfig")
           if ok and lspconfig[server] then
-            lspconfig[server].setup({ capabilities = capabilities })
+            lspconfig[server].setup(server_config)
           end
         end
       end
