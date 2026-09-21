@@ -56,3 +56,38 @@ export PATH="/home/user/.local/bin:$PATH"
 
 # Trigger tmux-sessionizer with Ctrl+F
 bindkey -s '^f' "tmux-sessionizer\n"
+
+# Make the sessionized folder the base folder in tmux sessions:
+# Prevent `cd` or `cd ~` from leaving the opened project/session folder.
+export REAL_HOME="$HOME"
+
+cd() {
+    local session_base="${TMUX_SESSION_PATH}"
+    if [[ -z "$session_base" && -n "$TMUX" ]]; then
+        local p
+        p=$(tmux show-environment TMUX_SESSION_PATH 2>/dev/null)
+        if [[ "$p" =~ ^TMUX_SESSION_PATH= ]]; then
+            session_base="${p#TMUX_SESSION_PATH=}"
+            export TMUX_SESSION_PATH="$session_base"
+        fi
+    fi
+
+    if [[ -n "$session_base" ]]; then
+        # `cd`, `cd ~`, `cd ~/`, `cd "$HOME"`, or `cd "$HOME/"` returns to the session base folder
+        if [[ $# -eq 0 || "$1" == "$HOME" || "$1" == "$HOME/" || "$1" == "~" || "$1" == "~/" ]]; then
+            builtin cd -- "$session_base"
+            return $?
+        fi
+
+        # If a tilde/home-relative subpath exists inside the project base, prioritize it
+        if [[ "$1" == "$HOME"/* ]]; then
+            local rel="${1#$HOME/}"
+            if [[ -d "$session_base/$rel" ]]; then
+                builtin cd -- "$session_base/$rel"
+                return $?
+            fi
+        fi
+    fi
+
+    builtin cd "$@"
+}
