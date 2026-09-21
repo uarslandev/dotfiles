@@ -56,6 +56,7 @@ export PATH="/home/user/.local/bin:$PATH"
 
 # Trigger tmux-sessionizer with Ctrl+F
 bindkey -s '^f' "tmux-sessionizer\n"
+bindkey -s '^k' "tmux kill-server\n"
 
 # Make the sessionized folder the base folder in tmux sessions:
 # Prevent `cd` or `cd ~` from leaving the opened project/session folder.
