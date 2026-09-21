@@ -49,6 +49,10 @@ alias n="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias sd="backup-all & shutdown now"
+alias t="tmux"
 
 # Added by Antigravity CLI installer
 export PATH="/home/user/.local/bin:$PATH"
+
+# Trigger tmux-sessionizer with Ctrl+F
+bindkey -s '^f' "tmux-sessionizer\n"
