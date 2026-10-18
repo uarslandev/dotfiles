@@ -1,5 +1,14 @@
 # dotfiles
 
+> **Moved.** This project now lives in the [`dotfiles/` folder of uarslandev/infra](https://github.com/uarslandev/infra/tree/main/dotfiles),
+> with its full history. This repo is no longer updated. Set up a machine with:
+>
+> ```bash
+> bash -c "$(curl -fsSL https://raw.githubusercontent.com/uarslandev/infra/main/bin/dotfiles)"
+> ```
+>
+> The old command from this repo still works and forwards there.
+
 Ansible-based development environment for **Arch/CachyOS**, **Ubuntu** (WSL + server), and **Fedora**.
 
 Roles are idempotent and per-distro: each role only runs the tasks that exist for
